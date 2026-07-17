@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bx1si1pfvk33h"]
 
 [ext_resource type="Script" uid="uid://oqbwc74xw1nl" path="res://scripts/debug/DebugSceneButton.cs" id="1_diest"]
-[ext_resource type="Script" uid="uid://b0ghwquehvlvg" path="res://scripts/debug/GameStateDebug.cs" id="2_ei2sf"]
+[ext_resource type="Script" uid="uid://chkbrj4nmx7su" path="res://scripts/ui/MainSceneController.cs" id="1_ei2sf"]
 
 [node name="MainScene" type="Control" unique_id=768525560]
 layout_mode = 3
@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ei2sf")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=810325515]
 layout_mode = 0
@@ -23,11 +24,20 @@ layout_mode = 2
 layout_mode = 2
 text = "MainScene"
 
+[node name="DayLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=15402818]
+layout_mode = 2
+text = "현재 날짜: 1일차"
+
+[node name="AdvanceDayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=983083427]
+layout_mode = 2
+text = "다음 날로 진행"
+
+[node name="PrintStateButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=522542433]
+layout_mode = 2
+text = "현재 상태 출력"
+
 [node name="NextButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=637997268]
 layout_mode = 2
 text = "일정 선택 화면으로 이동"
 script = ExtResource("1_diest")
 TargetScenePath = "uid://bmy4uhai6yjdi"
-
-[node name="GameStateDebug" type="Node" parent="." unique_id=1646051753]
-script = ExtResource("2_ei2sf")
