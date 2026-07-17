@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bx1si1pfvk33h"]
 
 [ext_resource type="Script" uid="uid://oqbwc74xw1nl" path="res://scripts/debug/DebugSceneButton.cs" id="1_diest"]
+[ext_resource type="Script" uid="uid://b0ghwquehvlvg" path="res://scripts/debug/GameStateDebug.cs" id="2_ei2sf"]
 
 [node name="MainScene" type="Control" unique_id=768525560]
 layout_mode = 3
@@ -27,3 +28,6 @@ layout_mode = 2
 text = "일정 선택 화면으로 이동"
 script = ExtResource("1_diest")
 TargetScenePath = "uid://bmy4uhai6yjdi"
+
+[node name="GameStateDebug" type="Node" parent="." unique_id=1646051753]
+script = ExtResource("2_ei2sf")
