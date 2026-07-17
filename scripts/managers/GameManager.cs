@@ -101,4 +101,33 @@ public partial class GameManager : Node
 			GD.PushError($"씬 전환 실패: {scenePath} / 오류: {result}");
 		}
 	}
+	
+	/// <summary>
+	/// 재윤 호감도를 변경합니다.
+	/// 호감도는 0보다 작아지거나 10보다 커지지 않습니다.
+	/// </summary>
+	public void ChangeJaeyoonAffection(int amount)
+	{
+		int before = CurrentState.JaeyoonAffection;
+
+		CurrentState.JaeyoonAffection = Mathf.Clamp(
+			CurrentState.JaeyoonAffection + amount,
+			0,
+			10
+		);
+
+		GD.Print(
+			$"재윤 호감도: {before} → " +
+			$"{CurrentState.JaeyoonAffection}"
+		);
+	}
+
+	/// <summary>
+	/// 이벤트 플래그를 현재 게임 상태에 추가합니다.
+	/// </summary>
+	public void AddFlag(string flagId)
+	{
+		CurrentState.AddFlag(flagId);
+		GD.Print($"플래그 획득: {flagId}");
+	}
 }

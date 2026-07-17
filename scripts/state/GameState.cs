@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// 현재 플레이의 진행 상황을 보관합니다.
@@ -103,5 +104,32 @@ public partial class GameState : Resource
 		}
 
 		return true;
+	}
+	
+	/// <summary>
+	/// 플레이 중 획득한 이벤트 플래그입니다.
+	/// </summary>
+	public HashSet<string> EventFlags { get; private set; } = new();
+
+	/// <summary>
+	/// 이벤트 플래그를 추가합니다.
+	/// 이미 존재하는 플래그는 중복 추가되지 않습니다.
+	/// </summary>
+	public void AddFlag(string flagId)
+	{
+		if (string.IsNullOrWhiteSpace(flagId))
+		{
+			return;
+		}
+
+		EventFlags.Add(flagId);
+	}
+
+	/// <summary>
+	/// 특정 이벤트 플래그를 가지고 있는지 확인합니다.
+	/// </summary>
+	public bool HasFlag(string flagId)
+	{
+		return EventFlags.Contains(flagId);
 	}
 }

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2ssk2pgu7aff"]
 
 [ext_resource type="Script" uid="uid://oqbwc74xw1nl" path="res://scripts/debug/DebugSceneButton.cs" id="1_cobpw"]
+[ext_resource type="Script" uid="uid://nc3mttcnewi3" path="res://scripts/ui/DialogueSceneController.cs" id="1_jlibq"]
 
 [node name="DialogueScene" type="Control" unique_id=768525560]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jlibq")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=810325515]
 layout_mode = 0
@@ -27,3 +29,43 @@ layout_mode = 2
 text = "메인 화면으로 이동"
 script = ExtResource("1_cobpw")
 TargetScenePath = "uid://bx1si1pfvk33h"
+
+[node name="DialogueMargin" type="MarginContainer" parent="." unique_id=651968788]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="DialogueBox" type="VBoxContainer" parent="DialogueMargin" unique_id=1348756475]
+layout_mode = 2
+
+[node name="ExpressionLabel" type="Label" parent="DialogueMargin/DialogueBox" unique_id=1478857006]
+layout_mode = 2
+text = "표정: Neutral"
+
+[node name="NameLabel" type="Label" parent="DialogueMargin/DialogueBox" unique_id=37181468]
+layout_mode = 2
+text = "캐릭터 이"
+
+[node name="BodyLabel" type="Label" parent="DialogueMargin/DialogueBox" unique_id=1595608747]
+layout_mode = 2
+text = "여기에 대사 본문이 표시됩니다."
+autowrap_mode = 3
+
+[node name="ProgressLabel" type="Label" parent="DialogueMargin/DialogueBox" unique_id=1674734717]
+layout_mode = 2
+text = "1 / 10"
+
+[node name="ChoiceBox" type="VBoxContainer" parent="DialogueMargin/DialogueBox" unique_id=1152780954]
+layout_mode = 2
+
+[node name="ChoiceButton1" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox" unique_id=1843414167]
+layout_mode = 2
+text = "선택지1"
+
+[node name="ChoiceButton2" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox" unique_id=1418164611]
+layout_mode = 2
+text = "선택지2"
+
+[node name="ChoiceButton3" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox" unique_id=1688581412]
+layout_mode = 2
+text = "선택지3"
