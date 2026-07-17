@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cpkc0f3olpj0n"]
+[gd_scene load_steps=2 format=3 uid="uid://cpkc0f3olpj0n"]
 
-[ext_resource type="Script" uid="uid://oqbwc74xw1nl" path="res://scripts/debug/DebugSceneButton.cs" id="1_nvm7s"]
+[ext_resource type="Script" path="res://scripts/ui/TitleSceneController.cs" id="1_title"]
 
 [node name="TitleScene" type="Control" unique_id=768525560]
 layout_mode = 3
@@ -9,21 +9,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_title")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=810325515]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1915027375]
 layout_mode = 2
 
-[node name="SceneLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1093840434]
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "TitleScene"
+text = "마왕님, 자소서부터 쓰세요!"
+horizontal_alignment = 1
 
-[node name="NextButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=637997268]
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "대화 화면으로 이동"
-script = ExtResource("1_nvm7s")
-TargetScenePath = "uid://b2ssk2pgu7aff"
+text = "새 게임"
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "저장 데이터가 없습니다."
+disabled = true
+text = "이어하기"
+
+[node name="ContinueTooltipArea" type="Control" parent="CenterContainer/VBoxContainer/ContinueButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+tooltip_text = "저장 데이터가 없습니다."
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "종료"
+
+[node name="ExitConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = ""
+dialog_text = "정말로 게임을 종료하시겠습니까?"
+ok_button_text = "예"
+cancel_button_text = "아니오"

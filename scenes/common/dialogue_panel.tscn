@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/DialoguePanelController.cs" id="1_panel"]
+
+[node name="DialoguePanel" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="DialogueMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 640
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="DialogueBox" type="VBoxContainer" parent="DialogueMargin"]
+layout_mode = 2
+
+[node name="ExpressionLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+layout_mode = 2
+text = "표정: Neutral"
+
+[node name="NameLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+layout_mode = 2
+text = "캐릭터"
+
+[node name="BodyLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+layout_mode = 2
+text = "여기에 대화 본문이 표시됩니다."
+autowrap_mode = 3
+
+[node name="ProgressLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+layout_mode = 2
+text = "1 / 10"
+
+[node name="ChoiceBox" type="VBoxContainer" parent="DialogueMargin/DialogueBox"]
+layout_mode = 2
+
+[node name="ChoiceButton1" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox"]
+layout_mode = 2
+text = "선택지1"
+
+[node name="ChoiceButton2" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox"]
+layout_mode = 2
+text = "선택지2"
+
+[node name="ChoiceButton3" type="Button" parent="DialogueMargin/DialogueBox/ChoiceBox"]
+layout_mode = 2
+text = "선택지3"
